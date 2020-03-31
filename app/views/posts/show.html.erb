@@ -13,7 +13,6 @@ email : <%= @post.user.email %>
 
 <form action="/posts/<%= @post.id %>/comments/create" method="POST">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    작성자 : <input type="text" name="user_name">
     내용 : <input type="text" name="body">
     <button>제출</button>
 </form>
@@ -25,10 +24,8 @@ email : <%= @post.user.email %>
 <% @post.comments.each do |comment| %>
     작성자 : <%= comment.user.email %>
     내용 : <%= comment.body %>
-    원본 글 : <%= comment.post.title %>
     <hr>
 <% end %>
 
 
-<hr>
 <a href="/posts/index">리스트로 이동</a>
